@@ -11,3 +11,6 @@ Cada proyecto se encuentra en un solo archivo o carpeta, según la necesidad. Lo
 Ejemplo: `01_calculadora`, `15_juego_de_cartas`
 
 000_test.py es un archivo de prueba.
+
+**Proyectos pendientes**:
+- Calculadora: quise hacer algo más complejo, se me olvidó diagramar c:
