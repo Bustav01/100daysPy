@@ -31,30 +31,36 @@ while keep_playing == True:
     if es_inicio == True: 
         usuario_cartas = start()
         dealer_cartas = start()
-    vis_usr_cartas = merge_cartas([mk_carta(c) for c in usuario_cartas])
-    vis_dlr_cartas = merge_cartas([mk_carta(c) for c in dealer_cartas])
     suma_cartas_usr = sum_carta(usuario_cartas)
     suma_cartas_dlr = sum_carta(dealer_cartas)
 
     print('Tus cartas:')
-    print(f'{vis_usr_cartas['head']}\n{vis_usr_cartas['arriba']}\n{vis_usr_cartas['medio']}\n{vis_usr_cartas['abajo']}\n')
+    vis_cartas(usuario_cartas)
     print(f'Suma de tus cartas: {suma_cartas_usr}')
     if suma_cartas_usr > 21:
-            keep_playing = False
-            print('Perdiste :c')
-            exit()
-    usr_jugar = seguir_jugando()
-    dlr_jugar = dlr_play(dealer_cartas)
-    if dlr_jugar == 'no':
-         print(f'Cartas del Dealer:\n{vis_dlr_cartas}')
+        usuario_pierde = True
+    if suma_cartas_dlr > 21:
+        dealer_pierde = True
 
-    if usr_jugar == 'no':
+    dlr_jugar = dlr_play(dealer_cartas)
+    usr_jugar = seguir_jugando()
+    
+    if usr_jugar == 'no' and dlr_jugar == 'si':
+        chk_ganador(usuario_cartas, dealer_cartas)
+        keep_playing = False
+        while dlr_jugar == 'si':
+            dealer_cartas.append(get_carta())
+            dlr_jugar = dlr_play(dealer_cartas)
+    elif usr_jugar == 'no' and dlr_jugar == 'no':
+        chk_ganador(usuario_cartas, dealer_cartas)
         keep_playing = False
     else:
         usuario_cartas.append(get_carta())
-        if suma_cartas_usr > 21:
+        if dlr_jugar == 'si':
+            dealer_cartas.append(get_carta())
+        if suma_cartas_usr > 21 and suma_cartas_dlr > 21:
             keep_playing = False
-            print('Perdiste :c')
+            chk_ganador(usuario_cartas, dealer_cartas)
         else:
             es_inicio = False
             os.system('cls')
