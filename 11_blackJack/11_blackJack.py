@@ -5,6 +5,10 @@ sacar dos cartas al azar
         si 1 más, sacar 1 carta
     sumar cartas
     comparar con 21
+
+
+dlr_play parece no estar funcionando correctamente.
+Dealer debería seguir sacando cartas aunque jugador no siga jugando.
 '''
 import os
 from methods import *
