@@ -11,3 +11,7 @@ LOOP:
         ganaste.
     tienes N intentos
 '''
+
+import random
+
+numero:int = random.randint(1,100)
