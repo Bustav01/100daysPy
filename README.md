@@ -14,3 +14,4 @@ Ejemplo: `01_calculadora`, `15_juego_de_cartas`
 
 **Proyectos pendientes**:
 - Calculadora: quise hacer algo más complejo, se me olvidó diagramar c:
+- BlackJack: ERROR: dealer no sigue jugando si usuario termina.
