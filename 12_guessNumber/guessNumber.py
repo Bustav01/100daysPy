@@ -13,5 +13,7 @@ LOOP:
 '''
 
 import random
+import time
+from 12_art.py import *
 
 numero:int = random.randint(1,100)
