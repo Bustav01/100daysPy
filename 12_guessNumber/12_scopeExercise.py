@@ -4,7 +4,7 @@ def is_prime(num:int)->bool:
     divisores.append(num)
     for n in divisores:
         print(n)
-    if len(divisores) == 1 or len(divisores) == 2:
+    if len(divisores) == 2:
         return True
     else: 
         return False
