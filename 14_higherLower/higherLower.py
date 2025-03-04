@@ -10,7 +10,7 @@ from art_14 import *
 from sujetos import datos
 
 def pick_subjects() -> list:
-    return random.choice(datos, 2) #Error
+    return random.sample(datos, 2) #Nota mental: random.choices usa sólo un parámetro
 
 def set_answer(subjects:list) -> str :
     if subjects[0]['cantidad_comparar'] == subjects[1]['cantidad_comparar']:
@@ -36,8 +36,6 @@ def player_input(string:str, entries:list):
         except ValueError:
             print(f'Debe escribir una de las opciones: {entries}')
 
-
-
 correctas = 0
 incorrectas = 0
 seguir_jugando = True
@@ -57,12 +55,16 @@ while seguir_jugando == True:
     else:
         incorrectas += 1
         print('Incorrecto :c')
-    jugar_de_nuevo = player_input('¿Desea seguir jugando?', ['SI','NO'])
+    
+    print(f'Producción A: {sujetos[0]['cantidad_comparar']}\nProducción B: {sujetos[1]['cantidad_comparar']}')
+    
+    jugar_de_nuevo = player_input('¿Desea seguir jugando? ', ['SI','NO'])
     if jugar_de_nuevo == 'SI':
         os.system('cls')
     else:
         os.system('cls')
         print(f'Respuestas correctas: {correctas}\nRespuestas Erróneas: {incorrectas}')
+        input('\n\nPresione cualquier tecla para finalizar...')
 
     
 
