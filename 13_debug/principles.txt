@@ -1,0 +1,16 @@
+1 - Describir el problema
+    cuál es el input.
+    cuál debe ser el resultado.
+    qué lo impide?
+
+2 - Reproducir el error
+    Algunos errores ocurren en casos específicos.
+    Crear la instancia en que el error ocurre.
+
+3 - Leer como la computadora.
+    Seguir la ruta lógica del proceso
+
+4 - Arreglar errores mostrados por IDE
+    usar try, except u otros métodos para informar a usuario de error
+
+5 - 
