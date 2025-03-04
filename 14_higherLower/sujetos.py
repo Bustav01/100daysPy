@@ -1,0 +1,22 @@
+datos: list[dict] = [
+    {'nombre': 'Hierro', 'cantidad_comparar': 2500000.0, 'descripcion': 'mineral', 'pais': 'Australia'},
+    {'nombre': 'Petróleo', 'cantidad_comparar': 11000000.0, 'descripcion': 'energético', 'pais': 'Arabia Saudita'},
+    {'nombre': 'Cobre', 'cantidad_comparar': 5800000.0, 'descripcion': 'mineral', 'pais': 'Chile'},
+    {'nombre': 'Soja', 'cantidad_comparar': 126000000.0, 'descripcion': 'alimenticio', 'pais': 'Brasil'},
+    {'nombre': 'Oro', 'cantidad_comparar': 3300.0, 'descripcion': 'mineral', 'pais': 'China'},
+    {'nombre': 'Trigo', 'cantidad_comparar': 76000000.0, 'descripcion': 'alimenticio', 'pais': 'India'},
+    {'nombre': 'Aluminio', 'cantidad_comparar': 68000000.0, 'descripcion': 'mineral', 'pais': 'Rusia'},
+    {'nombre': 'Cacao', 'cantidad_comparar': 2100000.0, 'descripcion': 'alimenticio', 'pais': 'Costa de Marfil'},
+    {'nombre': 'Gas Natural', 'cantidad_comparar': 92000000.0, 'descripcion': 'energético', 'pais': 'Estados Unidos'},
+    {'nombre': 'Níquel', 'cantidad_comparar': 2700000.0, 'descripcion': 'mineral', 'pais': 'Indonesia'},
+    {'nombre': 'Azúcar', 'cantidad_comparar': 38000000.0, 'descripcion': 'alimenticio', 'pais': 'India'},
+    {'nombre': 'Plata', 'cantidad_comparar': 25000.0, 'descripcion': 'mineral', 'pais': 'México'},
+    {'nombre': 'Maíz', 'cantidad_comparar': 350000000.0, 'descripcion': 'alimenticio', 'pais': 'Estados Unidos'},
+    {'nombre': 'Litio', 'cantidad_comparar': 89000.0, 'descripcion': 'mineral', 'pais': 'Australia'},
+    {'nombre': 'Café', 'cantidad_comparar': 3500000.0, 'descripcion': 'alimenticio', 'pais': 'Brasil'},
+    {'nombre': 'Carbón', 'cantidad_comparar': 3800000000.0, 'descripcion': 'energético', 'pais': 'China'},
+    {'nombre': 'Platino', 'cantidad_comparar': 180.0, 'descripcion': 'mineral', 'pais': 'Sudáfrica'},
+    {'nombre': 'Algodón', 'cantidad_comparar': 26000000.0, 'descripcion': 'alimenticio', 'pais': 'India'},
+    {'nombre': 'Zinc', 'cantidad_comparar': 13000000.0, 'descripcion': 'mineral', 'pais': 'China'},
+    {'nombre': 'Sal', 'cantidad_comparar': 300000000.0, 'descripcion': 'alimenticio', 'pais': 'Estados Unidos'}
+]
