@@ -1,3 +1,5 @@
+Buenas prácticas:
+
 1 - Describir el problema
     cuál es el input.
     cuál debe ser el resultado.
@@ -11,6 +13,11 @@
     Seguir la ruta lógica del proceso
 
 4 - Arreglar errores mostrados por IDE
-    usar try, except u otros métodos para informar a usuario de error
+    Usar try, except u otros métodos para informar a usuario de error
 
-5 - 
+5 - Usar print para visualizar variables no impresas
+
+6 - Usar debugger (como el punto 3)
+    Algunos IDE muestran las variables y sus valores en tiempo real
+
+
