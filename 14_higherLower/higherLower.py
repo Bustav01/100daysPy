@@ -40,6 +40,7 @@ correctas = 0
 incorrectas = 0
 seguir_jugando = True
 while seguir_jugando == True:
+    os.system('cls')
     print('hola')
     sujetos = pick_subjects()
     correcta_respuesta:str = set_answer(sujetos)
@@ -48,7 +49,7 @@ while seguir_jugando == True:
     print('VS')
     show_subject(sujetos[1],'B')
 
-    jugador_respuesta:str = player_input('Escribe A, B o "Iguales"', ['A','B','IGUALES'])
+    jugador_respuesta:str = player_input('Escribe A, B o "Iguales" ', ['A','B','IGUALES'])
     if jugador_respuesta == correcta_respuesta:
         correctas += 1
         print('Correcto! c:')
