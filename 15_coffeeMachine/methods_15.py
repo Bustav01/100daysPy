@@ -1,18 +1,30 @@
 import time
+import re
 from data import *
 
 def get_report(r:dict) -> None:
     print(f'Agua: {r['agua']}ml\nCafé: {r['cafe']}g')
     print(f'Leche: {r['leche']}ml\nDinero: ${r['dinero']}')
 
-def get_coin(m):
+def get_coin(m:dict) -> dict:
     '''Ingresar cantidades por moneda'''
+    segmento = r'\d+'                           # Detecta número de cualquier dígito
+    patron = r','.join([segmento for k in m])   # Añade segmentos por cada llave en diccionario de monedas (m)
+    formato = r",".join(f'{k}' for k in m)      # 0,0,0... según diccionario
+
     while True:
         try:
-            entrada = input()
-            pass
+            #Solicitar cantidad de monedas según estructura de diccionario:
+            entrada = input(f'Ingrese la cantidad para cada moneda\nFormato: {formato} ')
+            if re.match(patron, entrada):
+                #Convertir entrada a lista, obtener índice y asignar valores a diccionario:
+                out:dict = {k: entrada.split(',')[i] for i,k in enumerate(m)}
+                return out
+            else:
+                raise ValueError
         except ValueError:
-            pass
+            print(f'''ERROR: debe ingresar cantidad de monedas según formato: {formato}
+                  Los valores mostrados son los tipos de moneda según casilla''')
 
 def get_input(string:str, opt:list[str], r:dict) -> str|None:
     while True:
