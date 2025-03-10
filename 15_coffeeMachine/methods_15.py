@@ -17,9 +17,8 @@ def get_coin(m:dict) -> dict:
             #Solicitar cantidad de monedas según estructura de diccionario:
             entrada = input(f'Ingrese la cantidad para cada moneda\nFormato: {formato} ')
             if re.match(patron, entrada):
-                #Convertir entrada a lista, obtener índice y asignar valores a diccionario:
-                out:dict = {k: entrada.split(',')[i] for i,k in enumerate(m)}
-                return out
+                #Convertir entrada a lista, valores a número, obtener índice y asignar valores a diccionario:
+                return {k: int(entrada.split(',')[i]) for i,k in enumerate(m)}
             else:
                 raise ValueError
         except ValueError:
@@ -65,7 +64,7 @@ def chk_payment(coins: dict, pedido:dict, r:dict) -> bool:
     
     hayMaterial = [chk_resources(pedido['ingredientes'], r)]
     pago = chk_coin(coins, pedido['costo'])
-    if pago >= 0:
+    if pago < 0:
         print(f'Monto insuficiente\n...se devolverá el dinero.')
     elif pago == 0:
         print(f'Monto pagado')
