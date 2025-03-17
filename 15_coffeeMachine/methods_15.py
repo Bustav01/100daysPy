@@ -57,13 +57,17 @@ def chk_coin(coins:dict, cost:int) -> int:
     '''Confirma que las monedas ingresadas suman la cantidad suficiente
     Retorna Pago - Costo'''
     suma = sum([k*coins[k] for k in coins])
+    print(f'DEBUG: sumando monedas {suma}')
     return (suma - cost)
 
 def chk_payment(coins: dict, pedido:dict, r:dict) -> bool:
     '''Confirma que los materiales son suficientes y el pago es correcto. Devuelve dinero si sobra'''
-    
-    hayMaterial = [chk_resources(pedido['ingredientes'], r)]
+    print(f'DEBUG: Chequeando pago:')
+    hayMaterial = chk_resources(pedido['ingredientes'], r)
+
+    print(f'DEBUG: hay material: {hayMaterial}')
     pago = chk_coin(coins, pedido['costo'])
+    print(f'DEBUG: pago: {pago}')
     if pago < 0:
         print(f'Monto insuficiente\n...se devolverá el dinero.')
     elif pago == 0:
