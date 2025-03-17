@@ -53,21 +53,21 @@ def chk_resources(order:dict, r:dict) -> bool :
     else:
         return True
 
-def chk_coin(coins:dict, cost:int) -> int:
+def chk_coin(coins:dict, cost:int,debug) -> int:
     '''Confirma que las monedas ingresadas suman la cantidad suficiente
     Retorna Pago - Costo'''
     suma = sum([k*coins[k] for k in coins])
-    print(f'DEBUG: sumando monedas {suma}')
+    if debug == True: print(f'DEBUG: sumando monedas {suma}')
     return (suma - cost)
 
-def chk_payment(coins: dict, order:dict, r:dict) -> bool:
+def chk_payment(coins: dict, order:dict, r:dict, debug) -> bool:
     '''Confirma que los materiales son suficientes y el pago es correcto. Devuelve dinero si sobra'''
-    print(f'DEBUG: Chequeando pago:')
+    if debug == True: print(f'DEBUG: Chequeando pago:')
     hayMaterial = chk_resources(order['ingredientes'], r)
 
-    print(f'DEBUG: hay material: {hayMaterial}')
-    pago = chk_coin(coins, order['costo'])
-    print(f'DEBUG: pago: {pago}')
+    if debug == True: print(f'DEBUG: hay material: {hayMaterial}')
+    pago = chk_coin(coins, order['costo'], debug)
+    if debug == True: print(f'DEBUG: pago: {pago}')
     if pago < 0:
         print(f'Monto insuficiente\n...se devolverá el dinero.')
     elif pago == 0:
@@ -80,9 +80,9 @@ def chk_payment(coins: dict, order:dict, r:dict) -> bool:
     else:
         return False
 
-def mk_coffee(pedido:dict, coins:dict, r:dict):
+def mk_coffee(pedido:dict, coins:dict, r:dict, debug):
     '''Imprime preparación de café si se confirma pago y materiales disponibles. Modifica recursos en máquina'''
-    esValido:bool = chk_payment(coins,pedido,r)
+    esValido:bool = chk_payment(coins,pedido,r, debug)
 
     if esValido == True:
         print('Preparando café')
@@ -93,7 +93,7 @@ def mk_coffee(pedido:dict, coins:dict, r:dict):
         return True
     else:
         return False
-def update_resources(r,order):
+def update_resources(r,order,debug):
     out = {}
     for k in r:
         if k in order:
@@ -102,6 +102,7 @@ def update_resources(r,order):
             out['dinero'] = r['dinero'] + order['costo']
         else:
             out[k] = r[k]
-    print(f'DEBUG out: {out}')
+    if debug == True:
+        print(f'DEBUG out: {out}')
 
     return out
