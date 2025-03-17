@@ -1,7 +1,7 @@
 '''
 TODO: Recursos no parece estar validando correctamente
 '''
-
+import os
 from methods_15  import *
 
 def main():
@@ -13,6 +13,7 @@ def main():
     }
     menu = [k for k in sabores]
     pedido = get_input('¿Qué sabor deseas?', menu, recursos)
+    #os.system('cls')
     monedas = {
             500:0,
             100:0,
@@ -37,9 +38,10 @@ def main():
         if hacerCafe == False:
             return None
         else:
-            rUses = {k:-v for (k,v) in sabores[pedido]['ingredientes']}
-            rUses['dinero'] = chk_coin(monedas, sabores[pedido]['costo'])
-            recursos = {k: v + rUses[k] for (k,v) in recursos if rUses[k] != None}
+            print(f'DEBUG: pedido: {sabores[pedido]}')
+            rUses = sabores[pedido]['ingredientes'] #ValueError: too many values to unpack (expected 2)
+            rUses['costo'] = chk_coin(monedas, sabores[pedido]['costo'])
+            recursos = update_resources(recursos, rUses)
 
 if __name__ == "__main__":
     while True:

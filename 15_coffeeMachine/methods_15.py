@@ -43,10 +43,10 @@ def get_input(string:str, opt:list[str], r:dict) -> str|None:
         except ValueError:
             print(f'ERROR: Entrada no válida. Debe escribir una de las siguientes opciones:\n{r"/".join(opt)}')
 
-def chk_resources(pedido:dict, r:dict) -> bool :
+def chk_resources(order:dict, r:dict) -> bool :
     '''Confirma que la máquina tiene los recursos suficientes'''
-    out = [r[k] >= pedido[k] for k in pedido]    #Confirma que máquina tiene más material que solicitado, sino Falso en indx
-    [print(f'No hay suficiente: {k}') for k in pedido if r[k] < pedido[k]]  #Imprime fallos
+    out = [r[k] >= order[k] for k in order]    #Confirma que máquina tiene más material que solicitado, sino Falso en indx
+    [print(f'No hay suficiente: {k}') for k in order if r[k] < order[k]]  #Imprime fallos
 
     if False in out:
         return False
@@ -60,13 +60,13 @@ def chk_coin(coins:dict, cost:int) -> int:
     print(f'DEBUG: sumando monedas {suma}')
     return (suma - cost)
 
-def chk_payment(coins: dict, pedido:dict, r:dict) -> bool:
+def chk_payment(coins: dict, order:dict, r:dict) -> bool:
     '''Confirma que los materiales son suficientes y el pago es correcto. Devuelve dinero si sobra'''
     print(f'DEBUG: Chequeando pago:')
-    hayMaterial = chk_resources(pedido['ingredientes'], r)
+    hayMaterial = chk_resources(order['ingredientes'], r)
 
     print(f'DEBUG: hay material: {hayMaterial}')
-    pago = chk_coin(coins, pedido['costo'])
+    pago = chk_coin(coins, order['costo'])
     print(f'DEBUG: pago: {pago}')
     if pago < 0:
         print(f'Monto insuficiente\n...se devolverá el dinero.')
@@ -93,3 +93,15 @@ def mk_coffee(pedido:dict, coins:dict, r:dict):
         return True
     else:
         return False
+def update_resources(r,order):
+    out = {}
+    for k in r:
+        if k in order:
+            out[k] = r[k] - order[k]
+        elif k == 'dinero':
+            out['dinero'] = r['dinero'] + order['costo']
+        else:
+            out[k] = r[k]
+    print(f'DEBUG out: {out}')
+
+    return out
