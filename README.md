@@ -1,4 +1,4 @@
-# 100 Días de Python
+# 100 Días de Python **Proyecto en pausa por estudios**
 
 Este repositorio contiene mis aproximaciones a cada proyecto del curso **"100 Days of Code: The Complete Python Pro Bootcamp"**.  
 
