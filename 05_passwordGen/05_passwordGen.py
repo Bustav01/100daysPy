@@ -35,7 +35,7 @@ for c in tipoChar:
 #print(''.join(tmpPass))
 password = []
 
-#TO DO: Reordenar
+#TO DO: pasar a función y ejecutar varias veces
 rd.shuffle(tmpPass)
 print(''.join(tmpPass))
 

@@ -1,4 +1,5 @@
-lista = [1,4,None]
+#   r2-r1=nλ
 
-for i in lista:
-    print(f'4 es mayor que {lista[i]}: {4 > lista[i]}')
+
+def calculo_lambda(r2:int,r1:int,n:int):
+    return (r2-r1)/n
