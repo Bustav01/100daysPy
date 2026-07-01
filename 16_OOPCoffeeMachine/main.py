@@ -11,23 +11,16 @@ def main():
     serve = True
     #Loop pedido:
     while serve == True:
-        order = input(f"Menú: {menu_items}\n")
-        print(order)
-        if menu.find_drink(order) == None:
+        request = input(f"Menú: {menu_items}\n")
+        order = menu.find_drink(request)
+        print(request)
+        if request == None:
             serve == False #Cortar loop
-        elif order == 'report':
+        elif request == 'report':
             coffee.report()
             money.report()
         else:
-            order 
-            bill = input(money.make_payment()) #Continuar proceso
-
-
-    
-
-
-
-
-
+            bill = order.cost
+            serve = money.make_payment(bill)
 if __name__ == "__main__":
     main()
